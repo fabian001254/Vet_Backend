@@ -9,7 +9,8 @@ class AdminEspecie{
     async CrearEspecie(req, res){
 
         const datos=req.body;
-
+        datos.esperanza_vida = parseInt(datos.esperanza_vida);
+        datos.peso_promedio = parseInt(datos.peso_promedio);
         const especie= await this.prisma.especie.create(
             {
                 data:datos
